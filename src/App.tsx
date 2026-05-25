@@ -6,7 +6,7 @@ import { ProjectGrid } from './components/ProjectGrid';
 import type { ProjectItem } from './components/ProjectGrid';
 
 function App() {
-  const { profile, experience, projects, contact } = portfolioData;
+  const { profile, skills, experience, projects, contact } = portfolioData;
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-50 antialiased">
@@ -18,6 +18,7 @@ function App() {
           github={contact.github}
           linkedin={contact.linkedin}
           email={contact.email}
+          skills={skills}
         />
         <ExperienceTimeline experiences={experience as ExperienceItem[]} />
         <ProjectGrid projects={projects as ProjectItem[]} />

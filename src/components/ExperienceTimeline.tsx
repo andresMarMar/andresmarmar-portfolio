@@ -4,7 +4,7 @@ export interface ExperienceItem {
   company: string;
   period: string;
   description: string;
-  technologies: string[];
+  technologies?: string[];
 }
 
 interface ExperienceTimelineProps {
@@ -34,16 +34,18 @@ export const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => 
                     {exp.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-sm font-medium bg-slate-800 text-slate-50 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  {exp.technologies && exp.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 text-sm font-medium bg-slate-800 text-slate-50 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
